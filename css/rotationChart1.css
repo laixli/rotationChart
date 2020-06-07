@@ -1,0 +1,104 @@
+/*设置轮播图（固定窗口）的样式*/
+.rotation{
+	/*设置轮播图的宽、高*/
+	width: 750px;
+	height: 450px;
+	/*使轮播图居中*/
+	margin: 0 auto;
+	/*position: relative;*/
+	/*超出轮播图位置的内容不展示*/
+	overflow: hidden;
+	/*作为按钮及滑动窗口的父类元素，使用相对定位，但不设置偏移量*/
+	position: relative;
+}
+
+/*设置滑动窗口的样式*/
+.image-list{
+	/*设置宽度为轮播图的n倍(n为图片数量),高度与轮播图一致*/
+	width: 700%;
+	height: 100%;
+	/*设置滑动窗口初始偏移量，开始时显示第一张图片*/
+	left: -750px;
+	top: 0px;
+	/*设置绝对定位，使图片通过滑动方式在固定窗口中显示，而不在固定窗口内的图片也不会影响其他元素的布局*/
+	position: absolute;
+}
+
+/*设置滑动窗口中的图片样式*/
+.rotation .image-list .image{
+	/*图片尺寸与轮播图大小相同,即宽度为滑动窗口宽度的1/n倍,高度一致*/
+	width: 750px;
+	height: 100%;
+	/*所有图片排列在同一行*/
+	float: left;
+}
+
+/*设置轮播图的左右按钮样式*/
+.rotation .button{
+	/*设置按钮的宽、高*/
+	width: 50px;
+	height: 90px;
+	/*使用绝对定位叠加在固定窗口上*/
+	position: absolute;
+	/*相对于父元素的上方边缘进行偏移，根据父类元素求比值，此处按钮高度占据父类元素高度的20%，剩余80%平分后作为按钮与父类元素上下边缘的间距*/
+	top: 40%;
+	/*按钮中的文字进行居中*/
+	text-align: center;
+	/*行高与按钮高度一致，相当于垂直居中*/
+	line-height: 90px;
+	/*按钮背景为黑色透明，0.3为透明程度*/
+	background-color: rgb(0,0,0,0.3);
+	/*按键文字颜色*/
+	color: white;
+	/*鼠标在按钮内时改变形状*/
+	cursor: pointer;
+	/*按钮文字加粗*/
+	font-weight: 700;
+}
+
+/*鼠标靠近按钮事件*/
+.rotation .button:hover{
+	/*鼠标靠近按钮时，加深按钮背景透明度*/
+	background-color: rgb(0,0,0,0.5);
+}
+
+/*左按钮放在轮播图左侧*/
+.rotation .leftBtn{
+	left: 0;
+}
+
+/*右按钮放在轮播图右侧*/
+.rotation .rightBtn{
+	right: 0;
+}
+
+/*消除分页下标的默认样式*/
+.rotation .image_page{
+	padding: 0;
+}
+
+/*设置分页下标样式*/
+.rotation .image_page li{
+	/*设置宽、高*/
+	width: 13px;
+	height: 13px;
+	/*设置下标未选中时的颜色*/
+	background-color: white;
+	/*设置圆形下标，这个可根据个人要求*/
+	border-radius: 50%;
+	/*使分页下标同在一行*/
+	display: inline-block;
+	/*配合固定窗口的相对定位*/
+	position: relative;
+	/*设置分页下标位置于固定窗口的最下方中间处*/
+	left: 330px;
+	top: 400px;
+	/*鼠标接近时变为手指模样*/
+	cursor: pointer;
+}
+
+/*设置初始选中的下标*/
+.rotation .image_page .img1{
+	/*设置下标选中*/
+	background-color: orange;
+}
